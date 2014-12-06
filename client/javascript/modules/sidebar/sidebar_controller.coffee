@@ -1,4 +1,5 @@
 Marionette = require 'backbone.marionette'
+Backbone = require 'backbone'
 $ = require 'jquery'
 Radio = require '../../radio'
 
@@ -38,3 +39,15 @@ module.exports = Marionette.Controller.extend
     Radio.vent.on 'global', 'toggle:sidebar', ->
       console.log $('#page-wrapper')
       $('#page-wrapper').toggleClass('active')
+
+    Radio.vent.on 'global', 'browse:levels', ->
+      Backbone.history.navigate 'levels', true
+
+    Radio.vent.on 'global', 'browse:classes', ->
+      Backbone.history.navigate 'classes', true
+
+    Radio.vent.on 'global', 'browse:titles', ->
+      Backbone.history.navigate 'titles', true
+
+    Radio.vent.on 'global', 'browse:skills', ->
+      Backbone.history.navigate 'skills', true

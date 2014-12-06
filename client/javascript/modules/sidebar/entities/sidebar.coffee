@@ -1,4 +1,5 @@
 Marionette = require 'backbone.marionette'
+Backbone = require 'backbone'
 SidebarCollection = require '../collections/sidebars'
 Radio = require '../../../radio'
 
@@ -10,7 +11,10 @@ module.exports =
 
   initializeSidebars: ->
     sidebars = new SidebarCollection([
-      { name: "App", url: "", navigationTrigger: "" }
+      { name: "Levels", url: "levels", navigationTrigger: "browse:levels" },
+      { name: "Classes", url: "classes", navigationTrigger: "browse:classes" },
+      { name: "Skills", url: "skills", navigationTrigger: "browse:skills" },
+      { name: "Titles", url: "titles", navigationTrigger: "browse:titles" }
     ])
 
   getSidebars: ->
@@ -21,4 +25,3 @@ module.exports =
   setHandlers: ->
     Radio.reqres.setHandler "global", "sidebar:entities", =>
       @getSidebars()
-
