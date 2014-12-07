@@ -12,7 +12,7 @@ module.exports = Marionette.Controller.extend
     @setHandlers()
 
   setActiveSidebar: (sidebarUrl) ->
-    links = Radio.reqres.request "global", "sidebar:entities"
+    links = Radio.reqres.request 'global', 'sidebar:entities'
     sidebarToSelect = links.find( (sidebar) ->
       sidebar.get('url') is sidebarUrl
     )
@@ -20,15 +20,16 @@ module.exports = Marionette.Controller.extend
     links.trigger('reset')
 
   listSidebar: ->
-    links = Radio.reqres.request "global", "sidebar:entities"
+    links = Radio.reqres.request 'global', 'sidebar:entities'
     sidebars = new SidebarsView collection: links
 
-    sidebars.on "brand:clicked", ->
-      Radio.vent.trigger "global", "page:support"
+    sidebars.on 'brand:clicked', ->
+      Radio.vent.trigger 'global', 'page:support'
 
-    sidebars.on "childview:navigate", (childView, model) ->
-      trigger = model.get "navigationTrigger"
-      Radio.vent.trigger "global", trigger
+    sidebars.on 'childview:navigate', (childView, model) ->
+      trigger = model.get 'navigationTrigger'
+      url = model.get 'url'
+      Radio.vent.trigger 'global', trigger, url
 
     @options.sidebarRegion.show sidebars
 
@@ -40,14 +41,7 @@ module.exports = Marionette.Controller.extend
       console.log $('#page-wrapper')
       $('#page-wrapper').toggleClass('active')
 
-    Radio.vent.on 'global', 'browse:levels', ->
-      Backbone.history.navigate 'levels', true
-
-    Radio.vent.on 'global', 'browse:classes', ->
-      Backbone.history.navigate 'classes', true
-
-    Radio.vent.on 'global', 'browse:titles', ->
-      Backbone.history.navigate 'titles', true
-
-    Radio.vent.on 'global', 'browse:skills', ->
-      Backbone.history.navigate 'skills', true
+    Radio.vent.on 'global', 'navigate', ((url) ->
+      Backbone.history.navigate url, true
+      @setActiveSidebar(url)
+    ).bind(@)

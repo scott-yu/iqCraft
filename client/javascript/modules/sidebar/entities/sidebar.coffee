@@ -11,10 +11,10 @@ module.exports =
 
   initializeSidebars: ->
     sidebars = new SidebarCollection([
-      { name: "Levels", url: "levels", navigationTrigger: "browse:levels" },
-      { name: "Classes", url: "classes", navigationTrigger: "browse:classes" },
-      { name: "Skills", url: "skills", navigationTrigger: "browse:skills" },
-      { name: "Titles", url: "titles", navigationTrigger: "browse:titles" }
+      { name: "Levels", url: "levels", navigationTrigger: "navigate" },
+      { name: "Classes", url: "classes", navigationTrigger: "navigate" },
+      { name: "Skills", url: "skills", navigationTrigger: "navigate" },
+      { name: "Titles", url: "titles", navigationTrigger: "navigate" }
     ])
 
   getSidebars: ->
