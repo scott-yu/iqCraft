@@ -5,21 +5,9 @@ module.exports = Marionette.AppRouter.extend({
 		this.app = options.app;
 	},
 	routes: {
-		'levels': 'onBrowseLevels',
-		'classes': 'onBrowseClasses',
-		'skills': 'onBrowseSkills',
-		'titles': 'onBrowseTitles'
+		'main': 'onBrowseMain'
 	},
-	onBrowseLevels: function() {
-		this.app.startModule('levels');
+	onBrowseMain: function() {
+		this.app.startModule('main');
 	},
-	onBrowseClasses: function() {
-		this.app.startModule('classes');
-	},
-	onBrowseSkills: function() {
-		this.app.startModule('skills');
-	},
-	onBrowseTitles: function() {
-		this.app.startModule('titles');
-	}
 });

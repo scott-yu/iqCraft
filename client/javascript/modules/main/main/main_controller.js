@@ -7,7 +7,7 @@ module.exports = Marionette.Controller.extend({
   },
   setHandlers: function() {
   },
-  listTitles: function() {
+  showContent: function() {
     this.region.empty();
   }
 });

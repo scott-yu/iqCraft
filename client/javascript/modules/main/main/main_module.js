@@ -1,5 +1,5 @@
 var Marionette = require('backbone.marionette');
-var SkillsController = require('./skills_controller');
+var MainController = require('./main_controller');
 
 module.exports = Marionette.Module.extend({
 	initialize: function() {
@@ -7,10 +7,10 @@ module.exports = Marionette.Module.extend({
 	},
   onStart: function() {
     this.startMediator();
-    this.controller.listSkills();
+    return this.controller.showContent();
   },
   startMediator: function() {
-    return this.controller = new SkillsController({
+    return this.controller = new MainController({
       mainRegion: this.app.mainRegion
     });
   }
