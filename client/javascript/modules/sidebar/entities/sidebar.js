@@ -15,9 +15,24 @@ module.exports = {
   initializeSidebars: function() {
     return sidebars = new SidebarCollection([
       {
-        name: 'App',
-        url: '',
-        navigationTrigger: ''
+        name: 'Levels',
+        url: 'levels',
+        navigationTrigger: 'navigate'
+      },
+      {
+        name: 'Classes',
+        url: 'classes',
+        navigationTrigger: 'navigate'
+      },
+      {
+        name: 'Skills',
+        url: 'skills',
+        navigationTrigger: 'navigate'
+      },
+      {
+        name: 'Titles',
+        url: 'titles',
+        navigationTrigger: 'navigate'
       }
     ]);
   },
