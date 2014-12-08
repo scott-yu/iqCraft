@@ -152,7 +152,7 @@
   // COLLAPSE DATA-API
   // =================
 
-  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
+  $(document).on('click.bs.collapse.data-api', '[data-toggle='collapse']', function (e) {
     var href
     var $this   = $(this)
     var target  = $this.attr('data-target')
@@ -165,7 +165,7 @@
     var $parent = parent && $(parent)
 
     if (!data || !data.transitioning) {
-      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('collapsed')
+      if ($parent) $parent.find('[data-toggle='collapse'][data-parent='' + parent + '']').not($this).addClass('collapsed')
       $this.toggleClass('collapsed', $target.hasClass('in'))
     }
 
