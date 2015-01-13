@@ -111,38 +111,79 @@ div.input-mask {
 
 .roster-list .item{
   text-align: left;
-  background: black;
+  background: white;
   margin-bottom: 2%;
   padding: 2%;
   vertical-align: top;
   display: none;
+  position: relative;
+
+  &::before {
+    border-radius: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+  }
 
   .first-name {
     font-size: 20px;
-    color: white;
+    color: #333;
     margin-bottom: 0;
   }
 
   .title {
-    color: #ddd;
+    color: #aaa;
+  }
+
+  .department {
+    color: #111;
+    font-weight: bold;
   }
 }
 
 .roster-list {
   .office-Regina {
-    background: rgb(211, 94, 94);
+    &::before {
+      content: "R";
+      background: rgb(211, 94, 94);
+    }
   }
   .office-Winnipeg {
-    background: rgb(46, 156, 249);
+    &::before {
+      content: "W";
+      background: rgb(46, 156, 249);
+    }
+//    background: rgb(46, 156, 249);
   }
   .office-Vancouver {
-    background: rgb(91, 147, 91);
+    &::before {
+      content: "V";
+      background: rgb(91, 147, 91);
+    }
   }
   .office-Davidson {
-    background: rgb(234, 180, 63);
+    &::before {
+      content: "D";
+      background: rgb(234, 180, 63);
+    }
   }
   .office-Sydney {
-    background: mediumpurple;
+    &::before {
+      content: "S";
+      background: mediumpurple;
+    }
+  }
+  .office-GreenwoodVillage {
+    &::before {
+      content: "G";
+      background: darkgreen;
+    }
   }
 }
 

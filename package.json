@@ -3,21 +3,22 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "browser": {
-    "jquery": "./client/bower_components/jquery/dist/jquery.js",
-    "jquery.cookie": "./client/bower_components/jquery.cookie/jquery.cookie.js",
-    "underscore": "./client/bower_components/lodash/dist/lodash.underscore.js",
-    "bootstrap": "./client/bower_components/bootstrap/dist/js/bootstrap.js",
-    "bootstrap.transition": "./client/javascript/vendor/bootstrap-transition-browserify-shimmed.js",
-    "bootstrap.collapse": "./client/javascript/vendor/bootstrap-collapse-browserify-shimmed.js",
-    "backbone": "./client/bower_components/backbone/backbone.js",
-    "backbone.wreqr": "./client/bower_components/backbone.wreqr/lib/backbone.wreqr.js",
-    "backbone.babysitter": "./client/bower_components/backbone.babysitter/lib/backbone.babysitter.js",
-    "backbone.marionette": "./client/bower_components/backbone.marionette/lib/backbone.marionette.js",
-    "backbone.picky": "./client/bower_components/backbone.picky/lib/backbone.picky.js",
-    "backbone.queryparams": "./client/bower_components/backbone-query-parameters/backbone.queryparams-1.1-shim.js",
-    "jquery.mixitup": "./client/bower_components/mixitup2/src/jquery.mixitup.js"
-  },
+    "browser": {
+        "jquery": "./client/bower_components/jquery/dist/jquery.js",
+        "jquery.cookie": "./client/bower_components/jquery.cookie/jquery.cookie.js",
+        "underscore": "./client/bower_components/lodash/dist/lodash.underscore.js",
+        "bootstrap": "./client/bower_components/bootstrap/dist/js/bootstrap.js",
+        "bootstrap.transition": "./client/javascript/vendor/bootstrap-transition-browserify-shimmed.js",
+        "bootstrap.collapse": "./client/javascript/vendor/bootstrap-collapse-browserify-shimmed.js",
+        "backbone": "./client/bower_components/backbone/backbone.js",
+        "backbone.wreqr": "./client/bower_components/backbone.wreqr/lib/backbone.wreqr.js",
+        "backbone.babysitter": "./client/bower_components/backbone.babysitter/lib/backbone.babysitter.js",
+        "backbone.marionette": "./client/bower_components/backbone.marionette/lib/backbone.marionette.js",
+        "backbone.picky": "./client/bower_components/backbone.picky/lib/backbone.picky.js",
+        "backbone.queryparams": "./client/bower_components/backbone-query-parameters/backbone.queryparams-1.1-shim.js",
+        "jquery.mixitup": "./client/bower_components/mixitup2/src/jquery.mixitup.js",
+        "select2": "./client/bower_components/select2/select2.min.js"
+    },
   "browserify": {
     "transform": [
       "browserify-shim",

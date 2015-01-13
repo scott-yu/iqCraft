@@ -3,6 +3,7 @@ var _ = require('underscore');
 var $ = require('jquery');
 
 require('jquery.mixitup');
+require('select2');
 
 module.exports = Marionette.ItemView.extend({
     template: require('./templates/filter_template'),
@@ -17,11 +18,16 @@ module.exports = Marionette.ItemView.extend({
                 displayValue: value
             }
         });
+        data.useDropbox = data.values.length > 50;
         return data;
     },
     onRender: function() {
-        this.ui.select.on('change', function(e) {
+        this.ui.select.select2({
+            width: 'copy'
+        }).on('change', function(e) {
             $('.x-mixitup-container').mixItUp('filter', e.currentTarget.value);
         });
+
+
     }
 });

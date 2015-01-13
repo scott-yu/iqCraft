@@ -11,7 +11,10 @@ gulp.task('copy-bower-files', function(){
 
   var files = [
     'client/bower_components/bootstrap/dist/css/bootstrap.css',
-    'client/bower_components/font-awesome/css/font-awesome.css'
+    'client/bower_components/font-awesome/css/font-awesome.css',
+      'client/bower_components/select2/select2.css',
+      'client/bower_components/select2/select2.png',
+      'client/bower_components/select2/select2-spinner.gif'
   ];
 
   return gulp.src(files)
