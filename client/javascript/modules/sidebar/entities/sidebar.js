@@ -14,26 +14,31 @@ module.exports = {
   },
   initializeSidebars: function() {
     return sidebars = new SidebarCollection([
-      {
-        name: 'Levels',
-        url: 'levels',
-        navigationTrigger: 'navigate'
-      },
-      {
-        name: 'Classes',
-        url: 'classes',
-        navigationTrigger: 'navigate'
-      },
-      {
-        name: 'Skills',
-        url: 'skills',
-        navigationTrigger: 'navigate'
-      },
-      {
-        name: 'Titles',
-        url: 'titles',
-        navigationTrigger: 'navigate'
-      }
+        {
+            name: 'Rosters',
+            url: 'rosters',
+            navigationTrigger: 'navigate'
+        }
+//      {
+//        name: 'Levels',
+//        url: 'levels',
+//        navigationTrigger: 'navigate'
+//      },
+//      {
+//        name: 'Classes',
+//        url: 'classes',
+//        navigationTrigger: 'navigate'
+//      },
+//      {
+//        name: 'Skills',
+//        url: 'skills',
+//        navigationTrigger: 'navigate'
+//      },
+//      {
+//        name: 'Titles',
+//        url: 'titles',
+//        navigationTrigger: 'navigate'
+//      }
     ]);
   },
   getSidebars: function() {

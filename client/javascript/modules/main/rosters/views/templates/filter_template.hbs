@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-4" style="text-align: right">
+       {{./key}}
+    </div>
+    <div class="col-md-8">
+        <select class="x-select">
+            <option value="all">all</option>
+            {{#each values}}
+                <option value=".{{../key}}-{{value}}">{{displayValue}}</option>
+            {{/each}}
+        </select>
+    </div>
+</div>
+
+<!--{{#each values}}-->
+<!--<div class="btn btn-default filter {{../key}}-{{value}}" data-filter=".{{../key}}-{{value}}">{{displayValue}}</div>-->
+<!--{{/each}}-->

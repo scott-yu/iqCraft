@@ -89,3 +89,90 @@ body {
 div.input-mask {
     padding-top: 7px;
 }
+
+
+.roster-list{
+  padding: 2% 2% 0;
+  text-align: justify;
+  font-size: 0;
+  background: #68b8c4;
+}
+
+.roster-list:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.roster-list .item{
+  display: inline-block;
+  width: 19%;
+}
+
+.roster-list .item{
+  text-align: left;
+  background: black;
+  margin-bottom: 2%;
+  padding: 2%;
+  vertical-align: top;
+  display: none;
+
+  .first-name {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 0;
+  }
+
+  .title {
+    color: #ddd;
+  }
+}
+
+.roster-list {
+  .office-Regina {
+    background: rgb(211, 94, 94);
+  }
+  .office-Winnipeg {
+    background: rgb(46, 156, 249);
+  }
+  .office-Vancouver {
+    background: rgb(91, 147, 91);
+  }
+  .office-Davidson {
+    background: rgb(234, 180, 63);
+  }
+  .office-Sydney {
+    background: mediumpurple;
+  }
+}
+
+/* Flex box progressive enhancements: */
+
+.roster-list{
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+  -webkit-align-content: flex-start;
+}
+
+p{
+  font-family: "Helvetica Neue", arial, sans-serif;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+p:last-child{
+  margin-bottom: 0;
+}
+
+.filters {
+  .filter {
+    margin-bottom: 5px;
+  }
+}
+
+.filter-panel {
+  height: 50%;
+}

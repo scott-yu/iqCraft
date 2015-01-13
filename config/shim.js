@@ -61,5 +61,11 @@ module.exports = {
             "backbone.wreqr":"Backbone.Wreqr",
             "backbone.babysitter":"Backbone.BabySitter"
         }
+    },
+    "jquery.mixitup": {
+        "exports": "$.MixItUp",
+        "depends": {
+            "jquery":"jQuery"
+        }
     }
 };

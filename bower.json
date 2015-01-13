@@ -16,6 +16,7 @@
     "lodash": "~2.4.1"
   },
   "devDependencies": {
-    "backfire": "~0.5.0"
+    "backfire": "~0.5.0",
+    "mixitup2": "~2.1.7"
   }
 }
