@@ -18,14 +18,14 @@ module.exports = Marionette.LayoutView.extend({
     initialize: function(options) {
 
         var self = this;
-        var filterKeys = ['office', 'department', 'title'];
+        var filterKeys = ['office', 'department', 'title', 'manager', 'memberOf'];
 
         this.collection = options.collection;
 
         this.filters = _.map(filterKeys, function(filterKey) {
             return  {
                 key: filterKey,
-                values: _.without(_.uniq(self.collection.pluck(filterKey)), '')
+                values: _.without(_.uniq(_.flatten(self.collection.pluck(filterKey))), '')
             };
         });
 
@@ -43,6 +43,9 @@ module.exports = Marionette.LayoutView.extend({
         this.$el.mixItUp({
             controls: {
                 live: true
+            },
+            load: {
+                sort: 'whenCreated:asc'
             }
         });
     }

@@ -3,13 +3,28 @@ var _ = require('underscore');
 
 module.exports = Marionette.ItemView.extend({
     className: function() {
-        var classes = 'mix item';
+        var classes = 'mix item ';
         var self = this;
+        var filterClasses = [];
+        var formatFilterValue = function(key, value) {
+            filterClasses.push(key + '-' + value.replace(/[^\w]/gi, ''));
+        }
         _.each(this.model.collection.filters, function(filter) {
-            var value = self.model.get(filter.key).replace(/[^\w]/gi, '');
-            classes = classes + ' ' + filter.key + '-' + value;
+            var value = self.model.get(filter.key);
+            if (typeof(value) === 'object') {
+                _.each(value, function(group) {
+                    formatFilterValue(filter.key, group);
+                });
+            } else {
+                formatFilterValue(filter.key, value);
+            }
         });
-        return classes;
+        return classes + filterClasses.join(' ');
+    },
+    attributes: function() {
+        return {
+            'data-whenCreated': this.model.get('whenCreated')
+        };
     },
     template: require('./templates/roster_template'),
     initialize: function(options) {

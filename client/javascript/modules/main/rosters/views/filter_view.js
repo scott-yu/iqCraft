@@ -18,7 +18,7 @@ module.exports = Marionette.ItemView.extend({
                 displayValue: value
             }
         });
-        data.useDropbox = data.values.length > 50;
+        data.useDropdown = data.values.length > 10;
         return data;
     },
     onRender: function() {
