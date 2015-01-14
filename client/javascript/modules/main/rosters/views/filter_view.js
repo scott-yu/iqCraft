@@ -27,7 +27,5 @@ module.exports = Marionette.ItemView.extend({
         }).on('change', function(e) {
             $('.x-mixitup-container').mixItUp('filter', e.currentTarget.value);
         });
-
-
     }
 });

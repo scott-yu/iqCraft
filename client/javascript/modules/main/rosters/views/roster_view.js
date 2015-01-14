@@ -14,5 +14,11 @@ module.exports = Marionette.ItemView.extend({
     template: require('./templates/roster_template'),
     initialize: function(options) {
         this.filters = options.filters;
+    },
+    serializeData: function() {
+        var data = this.model.toJSON();
+        data.thumbnailPath = data.firstName.toLowerCase() + '_' + data.lastName.toLowerCase();
+
+        return data;
     }
 });
