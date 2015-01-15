@@ -1,7 +1,11 @@
 var Marionette = require('backbone.marionette');
+var Backbone = require('backbone');
 var _ = require('underscore');
 
 module.exports = Marionette.ItemView.extend({
+    events: {
+        'click': 'onClick'
+    },
     className: function() {
         var classes = 'mix item ';
         var self = this;
@@ -35,5 +39,8 @@ module.exports = Marionette.ItemView.extend({
         data.thumbnailPath = data.firstName.toLowerCase() + '_' + data.lastName.toLowerCase();
 
         return data;
+    },
+    onClick: function() {
+        Backbone.history.navigate('rosters/' + this.model.get('firstName') + '.' + this.model.get('lastName'), true);
     }
 });

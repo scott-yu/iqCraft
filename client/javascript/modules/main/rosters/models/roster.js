@@ -13,7 +13,8 @@ module.exports = Backbone.Model.extend({
             thumbnailPhoto: res.thumbnailPhoto,
             manager: this.getCNFromString(res.manager),
             memberOf: this.formatMemberGroups(res.memberOf),
-            whenCreated: res.whenCreated
+            whenCreated: res.whenCreated,
+            mail: res.mail
         };
     },
     getCNFromString: function(string) {

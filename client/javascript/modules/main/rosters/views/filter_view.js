@@ -1,4 +1,5 @@
 var Marionette = require('backbone.marionette');
+var Backbone = require('backbone');
 var _ = require('underscore');
 var $ = require('jquery');
 
@@ -10,6 +11,10 @@ module.exports = Marionette.ItemView.extend({
     ui: {
         select: '.x-select'
     },
+    initialize: function(options) {
+        options = options || {};
+        this.appliedFilters = options.appliedFilters;
+    },
     serializeData: function() {
         var data = this.model.toJSON();
         data.values = _.map(data.values, function(value) {
@@ -18,14 +23,18 @@ module.exports = Marionette.ItemView.extend({
                 displayValue: value
             }
         });
-        data.useDropdown = data.values.length > 10;
+        data.useDropdown = data.values.length > 0;
         return data;
     },
     onRender: function() {
         this.ui.select.select2({
             width: 'copy'
         }).on('change', function(e) {
-            $('.x-mixitup-container').mixItUp('filter', e.currentTarget.value);
+              Backbone.history.navigate('rosters/filters/' + e.currentTarget.value, true);
         });
+
+        if (this.appliedFilters && this.appliedFilters.search(this.model.get('key')) === 1) {
+            this.ui.select.select2('val', this.appliedFilters);
+        }
     }
 });

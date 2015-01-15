@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <a href="#rosters" class="btn btn-default">Back</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        {{#if thumbnailPhoto}}
+            <div class="thumbnail profile" style="background-image:url(data:image/gif;base64,{{thumbnailPhoto}});"></div>
+        {{else}}
+            <div class="thumbnail profile" style="background-image:url(/images/profileNotFound.jpg);"></div>
+        {{/if}}
+    </div>
+    <div class="col-md-8">
+        <p><a class="x-filter-link" data-filterKey="office">{{office}}</a></p>
+        <h1>{{firstName}} {{lastName}}</h1>
+        <p>{{mail}}</p>
+        <p class="title">
+            <strong><a class="x-filter-link" data-filterKey="department">{{department}}</a></strong> /
+            <a class="x-filter-link" data-filterKey="title">{{title}}</a></p>
+        {{#if manager}}<p>Manager: <a class="x-manager-link">{{manager}}</a></p>{{/if}}
+        <p>Groups: <ul>{{#each memberOf}}<li><a class="x-filter-link" data-filterKey="memberOf">{{.}}</a></li>{{/each}}</ul></p>
+        <div class="x-reports report-list"></div>
+    </div>
+</div>

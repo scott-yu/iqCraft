@@ -21,6 +21,7 @@ module.exports = Marionette.LayoutView.extend({
         var filterKeys = ['office', 'department', 'title', 'manager', 'memberOf'];
 
         this.collection = options.collection;
+        this.appliedFilters = options.filters;
 
         this.filters = _.map(filterKeys, function(filterKey) {
             return  {
@@ -33,7 +34,8 @@ module.exports = Marionette.LayoutView.extend({
     },
     onRender: function() {
         this.filtersRegion.show(new FiltersView({
-            collection: new Backbone.Collection(this.filters)
+            collection: new Backbone.Collection(this.filters),
+            appliedFilters: this.appliedFilters
         }));
 
         this.rostersRegion.show(new RostersView({
@@ -45,6 +47,7 @@ module.exports = Marionette.LayoutView.extend({
                 live: true
             },
             load: {
+                filter: this.appliedFilters || 'all',
                 sort: 'whenCreated:asc'
             }
         });

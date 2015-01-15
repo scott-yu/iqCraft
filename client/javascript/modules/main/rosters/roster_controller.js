@@ -1,7 +1,7 @@
 var Marionette = require('backbone.marionette');
 var RostersEntity = require('./entities/rosters');
 var RostersCollection = require('./collections/rosters');
-var RostersLayout= require('./views/rosters_layout');
+var RosterLayout= require('./views/roster_layout');
 
 module.exports = Marionette.Controller.extend({
     initialize: function(options) {
@@ -14,11 +14,12 @@ module.exports = Marionette.Controller.extend({
     },
     setHandlers: function() {
     },
-    listRosters: function(filters) {
+    viewRoster: function(name) {
         this.rostersCollection.fetch().complete(function() {
-            this.region.show(new RostersLayout({
-                collection: this.rostersCollection,
-                filters: filters
+            var nameObj = name.split('.');
+            var roster = this.rostersCollection.findWhere({firstName: nameObj[0], lastName: nameObj[1]});
+            this.region.show(new RosterLayout({
+                model: roster
             }));
         }.bind(this));
     }

@@ -5,9 +5,9 @@ module.exports = Marionette.Module.extend({
 	initialize: function() {
 		this.startWithParent = false;
 	},
-  onStart: function() {
+  onStart: function(filters) {
     this.startMediator();
-    return this.controller.listRosters();
+    return this.controller.listRosters(filters);
   },
   startMediator: function() {
     return this.controller = new RostersController({

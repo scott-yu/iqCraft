@@ -6,6 +6,7 @@ var SidebarModule = require('./modules/sidebar/sidebar_module');
 var MainRouter = require('./modules/main/main_routes');
 
 var RostersModule = require('./modules/main/rosters/rosters_module');
+var RosterModule = require('./modules/main/rosters/roster_module');
 
 //var LevelsModule = require('./modules/main/levels/levels_module');
 //var SkillsModule = require('./modules/main/skills/skills_module');
@@ -51,6 +52,7 @@ App.on('start', function() {
 App.module('header', HeaderModule);
 App.module('sidebar', SidebarModule);
 App.module('rosters', RostersModule);
+App.module('roster', RosterModule);
 //App.module('levels', LevelsModule);
 //App.module('classes', ClassesModule);
 //App.module('titles', TitlesModule);

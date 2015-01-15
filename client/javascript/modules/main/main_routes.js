@@ -5,15 +5,29 @@ module.exports = Marionette.AppRouter.extend({
 		this.app = options.app;
 	},
 	routes: {
-        'rosters': 'onBrowseRosters'
+        'rosters/filters/:filter': 'onBrowseRosters',
+        'rosters': 'onBrowseRosters',
+        'rosters/:id': 'onBrowseRoster'
 //		'levels': 'onBrowseLevels',
 //		'classes': 'onBrowseClasses',
 //		'skills': 'onBrowseSkills',
 //		'titles': 'onBrowseTitles'
 	},
-    onBrowseRosters: function() {
-		this.app.startModule('rosters');
-	}
+    onBrowseRosters: function(filters) {
+        if (!this.app.module('rosters').controller) {
+            this.app.startModule('rosters', filters);
+        } else {
+            this.app.module('rosters').controller.listRosters(filters);
+        }
+
+	},
+    onBrowseRoster: function(roster) {
+        if (!this.app.module('roster').controller) {
+            this.app.startModule('roster', roster);
+        } else {
+            this.app.module('roster').controller.viewRoster(roster);
+        }
+    }
 //	onBrowseLevels: function() {
 //		this.app.startModule('levels');
 //	},
