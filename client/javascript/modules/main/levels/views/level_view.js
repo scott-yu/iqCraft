@@ -5,14 +5,13 @@ module.exports = Marionette.ItemView.extend({
     template: require('./templates/level_template'),
     initialize: function() {
         this._doSomething();
-        this._doSomethingMaybe();
     },
     _doSomething: function() {
-        return;
+        return this._doSomethingMaybe();
     },
     _doSomethingMaybe: function() {
         return Math.random() === 0;
 
-        return 'foooooooooo';
+        return 'foooooooooo' + 'barrrrrr';
     }
 });
