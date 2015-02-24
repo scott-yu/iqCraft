@@ -5,22 +5,23 @@ var LevelsView = require('./views/levels_view');
 var Radio = require('../../../radio');
 
 module.exports = Marionette.Controller.extend({
-  initialize: function(options) {
-    this.region = options.mainRegion;
-    LevelsEntity.initialize();
-    this.setHandlers();
+    initialize: function(options) {
+        this.region = options.mainRegion;
+        LevelsEntity.initialize();
+        this.setHandlers();
 
-    this.levelCollection = this.buildLevelColleciton();
-  },
-  buildLevelColleciton: function() {
-    return new LevelsCollection(Radio.reqres.request('global', 'level:levels'));
-  },
-  setHandlers: function() {
-      // TODO: just some comments
-  },
-  listLevels: function() {
-    this.region.show(new LevelsView({
-      collection: this.levelCollection
-    }));
-  }
+        this.levelCollection = this.buildLevelColleciton();
+    },
+    buildLevelColleciton: function() {
+        return new LevelsCollection(Radio.reqres.request('global', 'level:levels'));
+    },
+    setHandlers: function() {
+        // TODO: just some comments
+    },
+    listLevels: function() {
+        var levelsView = new LevelsView({
+            collection: this.levelCollection
+        });
+        this.region.show(levelsView);
+    }
 });
