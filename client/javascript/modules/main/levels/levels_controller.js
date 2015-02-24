@@ -16,6 +16,7 @@ module.exports = Marionette.Controller.extend({
     return new LevelsCollection(Radio.reqres.request('global', 'level:levels'));
   },
   setHandlers: function() {
+      // TODO: just some comments
   },
   listLevels: function() {
     this.region.show(new LevelsView({
